@@ -5,29 +5,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-void readFile() {
+char** readFile(char **text, char chr[][20]) {//¬озвращает указатель на массив массивов чаров
 	setlocale(LC_ALL, "RUS");
-	char ch = ' ', sl[50];
-	char **text;
-	int nteams = 10;
+	const int nteams = 10;
+	char ch = ' ', sl[20];
+
 	FILE *tsopen, *pr;
 	if (tsopen = fopen("teams.txt", "rt"));
 	else perror("Error");
-	text = (char  **)malloc(nteams * sizeof(char *));
 	for (int i = 0; i < nteams; i++) {
-		ch = getc(tsopen);
-		while (ch != '\n') {
-			text[i] += ch;
-			ch = getc(tsopen);
-
-		}
+		text[i] = fgets(chr[i], sizeof(sl), tsopen);
+		text[i] = &chr[i][0];
 		printf("%s", text[i]);
 	}
-}
 
+	return **text;
+}
 int main()
 {
-	readFile();
+	char chr[10][20];
+	char **c;
+	c = (char  **)malloc(10 * sizeof(char *));
+	readFile(c, chr);
+	printf("\n%s", c[1]);
 
 	_getch();
 	return 0;
