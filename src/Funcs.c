@@ -1,7 +1,7 @@
 #pragma once
 #pragma warning(disable : 4996)
 #include <stdio.h>
-#include <conio.h>
+#include <ncurses.h>
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
@@ -29,6 +29,6 @@ int main()
 	readFile(c, chr);
 	printf("\n%s", c[1]);
 
-	_getch();
+	getch();
 	return 0;
 }
