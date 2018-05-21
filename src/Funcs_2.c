@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+
+
+
+
 char** readFile(char **text, char chr[][20], int *m) {//¬озвращает указатель на массив массивов чаров
 	setlocale(LC_ALL, "RUS");
 	const int nteams = 10;
@@ -12,21 +16,22 @@ char** readFile(char **text, char chr[][20], int *m) {//¬озвращает указатель на 
 	if (tsopen = fopen("teams.txt", "rt"));
 	else perror("Error");
 	while(!feof(tsopen)){
-		text[j] = fgets(chr[j++], sizeof(sl), tsopen);
+		text[j] = fgets(chr[j], sizeof(sl), tsopen);
+		j++;
 		//text[i] = &chr[i][0];
-		printf("%s", text[j]);
+		//printf("%s", text[j]);
 	//j++;
 	}
-	printf("\n");
-	*m = j;
+	//printf("\n");
+	*m = j - 1;
 	return (char**)text;
 }
-int main()
+/*int main()
 {
 	int m = 0;
-	char chr[10][20];
+	char chr[30][20];
 	char **c;
-	c = (char  **)malloc(10 * sizeof(char *));
+	c = (char  **)malloc(30 * sizeof(char *));
 	readFile(c, chr, &m);
 	printf("\nAfter main \nc[0] = %s", c[0]);
 	printf("\nc[1] = %s", c[1]);
@@ -41,3 +46,4 @@ int main()
 	getchar();
 	return 0;
 }
+*/
