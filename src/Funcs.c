@@ -1,5 +1,5 @@
-#pragma once
-#pragma warning(disable : 4996)
+//#pragma once
+//#pragma warning(disable : 4996)
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
@@ -8,10 +8,10 @@
 char** readFile01(char **text, char chr[][20]) {//¬озвращает указатель на массив массивов чаров
 	setlocale(LC_ALL, "RUS");
 	const int nteams = 10;
-	char ch = ' ', sl[20];
+	char sl[20];
 
-	FILE *tsopen, *pr;
-	if (tsopen = fopen("teams.txt", "rt"));
+	FILE *tsopen;
+	if ((tsopen = fopen("teams.txt", "rt")));
 	else perror("Error");
 	for (int i = 0; i < nteams; i++) {
 		text[i] = fgets(chr[i], sizeof(sl), tsopen);
@@ -19,7 +19,7 @@ char** readFile01(char **text, char chr[][20]) {//¬озвращает указатель на массив
 		printf("%s", text[i]);
 	}
 
-	return **text;
+	return(char**) text;
 }
 /*int main()
 {

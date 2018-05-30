@@ -9,11 +9,11 @@
 
 char** readFile(char **text, char chr[][20], int *m) {//¬озвращает указатель на массив массивов чаров
 	setlocale(LC_ALL, "RUS");
-	const int nteams = 10;
+	//const int nteams = 10;
 	char sl[20];
 	int j = *m;
 	FILE *tsopen;
-	if (tsopen = fopen("teams.txt", "rt"));
+	if ((tsopen = fopen("teams.txt", "rt")));
 	else perror("Error");
 	while(!feof(tsopen)){
 		text[j] = fgets(chr[j], sizeof(sl), tsopen);

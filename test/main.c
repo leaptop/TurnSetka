@@ -5,14 +5,14 @@
 #include <Funcs.h>
 
 
-
+/*
 CTEST(checkF, Correct) {
     int result = checkF();
     int expected = 0;
     ASSERT_EQUAL(expected,result);
 }
 
-
+*/
 
 int main(int argc, const char** argv) {
     int test_res = ctest_main(argc, argv);
