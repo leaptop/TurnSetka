@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-char** readFile(char **text, char chr[][20]) {//¬озвращает указатель на массив массивов чаров
+char** readFile01(char **text, char chr[][20]) {//¬озвращает указатель на массив массивов чаров
 	setlocale(LC_ALL, "RUS");
 	const int nteams = 10;
 	char ch = ' ', sl[20];
@@ -21,7 +21,7 @@ char** readFile(char **text, char chr[][20]) {//¬озвращает указатель на массив м
 
 	return **text;
 }
-int main()
+/*int main()
 {
 	char chr[10][20];
 	char **c;
@@ -31,4 +31,4 @@ int main()
 
 	getch();
 	return 0;
-}
+}*/

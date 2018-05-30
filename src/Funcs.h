@@ -1,1 +1,1 @@
-char** readFile(char **text, char chr[][20]);
+char** readFile01(char **text, char chr[][20]);
