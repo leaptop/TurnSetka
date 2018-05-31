@@ -3,7 +3,7 @@ CFLAGS  = -Wall -std=gnu11
 
 .PHONY: clean
 
-all: bin build test default
+all: bin build default test
 
 default: bin/turnset
 
