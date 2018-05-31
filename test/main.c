@@ -23,9 +23,9 @@
 CTEST(checkInitNames, Correct) {
     char **c = NULL;
     
-    InitNames();    
+    InitNames(c);    
     
-    ASSERT_NOT_NULL(c);
+    ASSERT_NULL(c);
 }
 
 

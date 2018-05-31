@@ -3,6 +3,6 @@ int SetPrint(char **names, int m);
 void Winners();
 void WinnersL();
 void WinnersLL();
-void InitNames();
+void InitNames(char **c);
 void InitLosers();
 int SetPrintL(char **names, int m);

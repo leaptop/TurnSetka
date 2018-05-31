@@ -4,7 +4,7 @@
 
 int m = 0;
 int ls = 0;
-char **c;
+//char **c;
 char **odd;
 int ii = 0;
 char **losers;
@@ -12,10 +12,11 @@ int q = -1;
 
 int main()
 {
+    char **c = NULL;
     int x, s;
     int ch = 1;
     // InitNames();
-    InitNames();
+    InitNames(c);
     InitLosers();
     char chr[30][20];
     readFile(c, chr, &m);
@@ -33,7 +34,7 @@ int main()
                 break;
             case 2:
                 if (m != 1) {
-                    Winners();
+                    Winners(c);
                     SetPrint(c, m);
                 }
                 if (m == 1)
@@ -52,7 +53,7 @@ int main()
                 SetPrintL(losers, m);
                 break;
             case 2:
-                WinnersL();
+                WinnersL(c);
                 if (m != 0) {
                     SetPrint(c, m);
                     SetPrintL(losers, ls);
@@ -66,14 +67,7 @@ int main()
 }
 
 
-void InitNames()
-{
-    int i;
-    c = (char **)malloc(30 * sizeof(char *));
-    for (i = 0; i < 30; i++) {
-        c[i] = (char *)malloc(30 * sizeof(char));
-    }
-}
+
 
 void InitLosers()
 {
@@ -174,7 +168,7 @@ int SetPrintL(char **names, int m)
     return 0;
 }
 
-void Winners()
+void Winners(char **c)
 {
     int i;
     int n[m / 2];
@@ -224,7 +218,7 @@ void Winners()
     }
 }
 
-void WinnersL()
+void WinnersL(char **c)
 {
     int i;
     int n[m / 2];
