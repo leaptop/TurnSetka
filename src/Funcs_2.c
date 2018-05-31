@@ -1,4 +1,4 @@
-#include "headers"
+#include "headers.h"
 
 char **readFile(char **text, char chr[][20], int *m)
 {
