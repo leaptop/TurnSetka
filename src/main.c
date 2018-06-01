@@ -272,7 +272,7 @@ int main()
 {
     int x, s;
     int ch = 1;
-    // InitNames();
+
     InitNames();
     InitLosers();
     char chr[30][20];
@@ -285,6 +285,9 @@ int main()
             printf("1 - show grid \n");
             printf("2 - choose winners \n");
             scanf("%d", &x);
+            if (checkIns(x)) {
+                continue;
+            }
             switch (x) {
             case 1:
                 SetPrint(c, m);
