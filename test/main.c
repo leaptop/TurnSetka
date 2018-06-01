@@ -1,4 +1,4 @@
-#define CTEST_MAIN
+﻿#define CTEST_MAIN
 #include <ctest.h>
 #include <Funcs_2.h>
 #include <Funcs.h>
