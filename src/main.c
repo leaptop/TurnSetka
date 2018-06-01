@@ -271,7 +271,8 @@ void WinnersLL()
 
 int main()
 {
-    int x, s;
+    char str[20];
+    int s;
     int ch = 1;
     InitNames();
     InitLosers();
@@ -284,15 +285,16 @@ int main()
         if (q <= 0) {
             printf("1 - show grid \n");
             printf("2 - choose winners \n");
-            scanf("%d", &x);
-            if (checkIns(x)) {
+            //scanf("%d", &x);
+            scanf("%s", str);
+            if (checkIns(str)) {
                 continue;
             }
-            switch (x) {
-            case 1:
+            switch (str[0]) {
+            case 49:
                 SetPrint(c, m);
                 break;
-            case 2:
+            case 50:
                 if (m != 1) {
                     Winners();
                     SetPrint(c, m);
@@ -306,13 +308,17 @@ int main()
         if (q == 1) {
             printf("1 - show grid \n");
             printf("2 - choose winners \n");
-            scanf("%d", &x);
-            switch (x) {
-            case 1:
+            //scanf("%d", &x);
+            scanf("%s", str);
+            if (checkIns(str)) {
+                continue;
+            }
+            switch (str[0]) {
+            case 49:
                 SetPrint(c, m);
                 SetPrintL(losers, m);
                 break;
-            case 2:
+            case 50:
                 WinnersL();
                 if (m != 0) {
                     SetPrint(c, m);

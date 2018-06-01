@@ -4,15 +4,17 @@
 #include <Funcs.h>
 
 CTEST(checkIns, Correct) {
-    int x = 1;
-    int result = checkIns(x);
+    char ins [1];
+    ins [0] = '2';
+    int result = checkIns(ins);
     int expected = 0;
     ASSERT_EQUAL(expected,result);
 }
 
 CTEST(checkIns, Incorrect) {
-    int x = 3;
-    int result = checkIns(x);
+    char ins [1];
+    ins [0] = 'f';
+    int result = checkIns(ins);
     int expected = 1;
     ASSERT_EQUAL(expected,result);
 }
