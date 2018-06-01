@@ -1,5 +1,5 @@
-﻿#include "Funcs_2.h"
 #include "Funcs.h"
+#include "Funcs_2.h"
 #include "headers.h"
 
 int m = 0;
@@ -120,10 +120,11 @@ void Winners()
     int l[20];
     char str[20];
     if (q == -1) {
-        yy: printf("Will there be lower bracket? 1 for yes 0 for no. (Note: If "
+    yy:
+        printf("Will there be lower bracket? 1 for yes 0 for no. (Note: If "
                "lower bracket will be enabled, number of competitors being not "
                "power of 2 will be impossible, so the teams will automatically "
-               "be removed to correspond to closest lower power of 2!) \n");        
+               "be removed to correspond to closest lower power of 2!) \n");
         scanf("%s", str);
         if (checkIns(str)) {
             goto yy;
@@ -153,7 +154,8 @@ void Winners()
     printf("Choose winners in each pair! (input 1 if team 1 won, input 2 if "
            "team 2 won) \n");
     for (i = 1; i < (m / 2) + 1; i++) {
-        mm: printf("Winner of pair %d: \n", i);    
+    mm:
+        printf("Winner of pair %d: \n", i);
         scanf("%s", str);
         if (checkIns(str)) {
             goto mm;
@@ -204,14 +206,15 @@ void WinnersL()
                "team 1 won, input 2 if team 2 won) \n");
     }
     for (i = 1; i < (m / 2) + 1; i++) {
-        kk: printf("Winner of pair %d: \n", i); 
+    kk:
+        printf("Winner of pair %d: \n", i);
         scanf("%s", str);
         if (checkIns(str)) {
-                goto kk;
+            goto kk;
         }
         switch (str[0]) {
         case 49:
-            p[i - 1] = 1;        
+            p[i - 1] = 1;
             break;
         case 50:
             p[i - 1] = 2;
@@ -227,7 +230,7 @@ void WinnersL()
         }
     }
     int mul = 0;
-    for (i = 0; i < m / 2; i++) {        
+    for (i = 0; i < m / 2; i++) {
         losers[i + mul] = losers[p[i] - 1 + mul];
         mul += 2;
     }
@@ -235,14 +238,15 @@ void WinnersL()
         printf("Choose winners in each pair of winners bracket! (input 1 if "
                "team 1 won, input 2 if team 2 won) \n");
     for (i = 1; i < (m / 2) + 1; i++) {
-        bb: printf("Winner of pair %d: \n", i);     
+    bb:
+        printf("Winner of pair %d: \n", i);
         scanf("%s", str);
         if (checkIns(str)) {
             goto bb;
         }
         switch (str[0]) {
         case 49:
-            n[i - 1] = 1;        
+            n[i - 1] = 1;
             break;
         case 50:
             n[i - 1] = 2;
@@ -253,8 +257,7 @@ void WinnersL()
         }
         if (n[i - 1] == 1) {
             l[i - 1] = 2;
-        }
-        else {
+        } else {
             l[i - 1] = 1;
         }
     }
@@ -272,7 +275,8 @@ void WinnersL()
         mul += 2;
     }
     if (m == 1) {
-        d: printf("Winner of the lower finals: \n");
+    d:
+        printf("Winner of the lower finals: \n");
         scanf("%s", str);
         if (checkIns(str)) {
             goto d;
@@ -292,8 +296,9 @@ void WinnersL()
         printf("The moment we all came here for! Choose the winner of grand "
                "finals between %s(1) and %s(2)! \n",
                 c[0],
-                losers[0]);    
-        aa: scanf("%s", str);
+                losers[0]);
+    aa:
+        scanf("%s", str);
         if (checkIns(str)) {
             goto aa;
         }
@@ -316,7 +321,7 @@ void WinnersL()
     m = m / 2;
     if (ls > m && ls != 2) {
         WinnersLL();
-    }   
+    }
 }
 
 void WinnersLL()
@@ -331,22 +336,23 @@ void WinnersLL()
            "team 2 won) \n");
     SetPrintL(losers, ls);
     for (i = 1; i < (ls / 2) + 1; i++) {
-        e: printf("Winner of pair %d: \n", i);     
+    e:
+        printf("Winner of pair %d: \n", i);
         scanf("%s", str);
         if (checkIns(str)) {
             goto e;
         }
         switch (str[0]) {
-            case 49:
-                p[i-1] = 1;
-                break;
-            case 50:
-                p[i-1] = 2;
-                break;
-           case 48:
-                goto e;
-                break;
-        }    
+        case 49:
+            p[i - 1] = 1;
+            break;
+        case 50:
+            p[i - 1] = 2;
+            break;
+        case 48:
+            goto e;
+            break;
+        }
     }
     int mul = 0;
     for (i = 0; i < ls / 2; i++) {
@@ -370,8 +376,9 @@ int main()
     }
     while (ch) {
         if (q <= 0) {
-            b: printf("1 - show grid \n");
-            printf("2 - choose winners \n");           
+        b:
+            printf("1 - show grid \n");
+            printf("2 - choose winners \n");
             scanf("%s", str);
             if (checkIns(str)) {
                 continue;
@@ -395,8 +402,9 @@ int main()
             }
         }
         if (q == 1) {
-         a: printf("1 - show grid \n");
-            printf("2 - choose winners \n");           
+        a:
+            printf("1 - show grid \n");
+            printf("2 - choose winners \n");
             scanf("%s", str);
             if (checkIns(str)) {
                 goto a;
@@ -416,7 +424,7 @@ int main()
                     ch = 0;
                 break;
             case 48:
-                goto a;         
+                goto a;
             }
         }
     }
