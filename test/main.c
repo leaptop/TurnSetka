@@ -3,9 +3,6 @@
 #include <Funcs_2.h>
 #include <Funcs.h>
 
-
-
-
 CTEST(checkIns, Incorrect1) {
     char ins [1];
     ins [0] = 'g';
@@ -24,7 +21,7 @@ CTEST(checkIns, Incorrect2) {
 
 CTEST(checkIns, Incorrect3) {
     char ins [12];
-    ins [0] = 'g', ins[1] = 'a';
+    ins [0] = 't', ins[1] = 'a';
     int result = checkIns(ins);
     int expected = 1;
     ASSERT_EQUAL(expected,result);
@@ -33,6 +30,38 @@ CTEST(checkIns, Incorrect3) {
 CTEST(checkIns, Incorrect4) {
     char ins [1];
     ins [0] = '9';
+    int result = checkIns(ins);
+    int expected = 1;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(checkIns, Incorrect5) {
+    char ins [1];
+    ins [0] = '3';
+    int result = checkIns(ins);
+    int expected = 1;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(checkIns, Incorrect6) {
+    char ins [2];
+    ins [1] = ' ';
+    int result = checkIns(ins);
+    int expected = 1;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(checkIns, Incorrect7) {
+    char ins [3];
+    ins [0] = 'l', ins[1] = 'a';
+    int result = checkIns(ins);
+    int expected = 1;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(checkIns, Incorrect8) {
+    char ins [1];
+    ins [0] = '5';
     int result = checkIns(ins);
     int expected = 1;
     ASSERT_EQUAL(expected,result);
