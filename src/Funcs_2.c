@@ -1,4 +1,6 @@
-﻿#include "headers.h"
+﻿#ifndef FUNCS_2
+#define FUNCS_2
+#include "headers.h"
 
 char **readFile(char **text, char chr[][20], int *m)
 {
@@ -17,3 +19,4 @@ char **readFile(char **text, char chr[][20], int *m)
     *m = j - 1;
     return (char **)text;
 }
+#endif

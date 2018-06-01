@@ -5,4 +5,4 @@ void WinnersLL();
 void InitNames();
 void InitLosers();
 int SetPrintL(char **names, int m);
-int checkIns(char ins[] );
+int checkIns(char ins[]);
