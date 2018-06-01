@@ -1,8 +1,8 @@
-char** readFile01(char **text, char chr[][20]);
-int SetPrint(char **names, int m);
+﻿int SetPrint(char **names, int m);
 void Winners();
 void WinnersL();
 void WinnersLL();
-void InitNames(char **c);
+void InitNames();
 void InitLosers();
 int SetPrintL(char **names, int m);
+int checkIns(int ins);

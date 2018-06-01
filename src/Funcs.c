@@ -1,10 +1,9 @@
-#include "headers.h"
+﻿#include "headers.h"
 
-void InitNames(char **c)
-{
-    int i;
-    c = (char **)malloc(30 * sizeof(char *));
-    for (i = 0; i < 30; i++) {
-        c[i] = (char *)malloc(30 * sizeof(char));
+int checkIns(int ins){
+if(ins != 1 && ins != 2) {
+    return 1;
+    } else {
+        return 0;
     }
 }

@@ -1,73 +1,23 @@
-#include "Funcs_2.h"
+﻿#include "Funcs_2.h"
 #include "Funcs.h"
 #include "headers.h"
 
 int m = 0;
 int ls = 0;
-//char **c;
+char **c;
 char **odd;
 int ii = 0;
 char **losers;
 int q = -1;
 
-int main()
+void InitNames()
 {
-    char **c = NULL;
-    int x, s;
-    int ch = 1;
-    // InitNames();
-    InitNames(c);
-    InitLosers();
-    char chr[30][20];
-    readFile(c, chr, &m);
-    for (s = 0; s < m; s++) {
-        c[s][strlen(c[s]) - 1] = '\0';
-    }
-    while (ch) {
-        if (q <= 0) {
-            printf("1 - show grid \n");
-            printf("2 - choose winners \n");
-            scanf("%d", &x);
-            switch (x) {
-            case 1:
-                SetPrint(c, m);
-                break;
-            case 2:
-                if (m != 1) {
-                    Winners(c);
-                    SetPrint(c, m);
-                }
-                if (m == 1)
-                    printf("%s is the winner of the tournament!\n", c[0]),
-                            ch = 0;
-                break;
-            }
-        }
-        if (q == 1) {
-            printf("1 - show grid \n");
-            printf("2 - choose winners \n");
-            scanf("%d", &x);
-            switch (x) {
-            case 1:
-                SetPrint(c, m);
-                SetPrintL(losers, m);
-                break;
-            case 2:
-                WinnersL(c);
-                if (m != 0) {
-                    SetPrint(c, m);
-                    SetPrintL(losers, ls);
-                }
-                if (m == 0)
-                    ch = 0;
-                break;
-            }
-        }
+    int i;
+    c = (char **)malloc(30 * sizeof(char *));
+    for (i = 0; i < 30; i++) {
+        c[i] = (char *)malloc(30 * sizeof(char));
     }
 }
-
-
-
 
 void InitLosers()
 {
@@ -168,7 +118,7 @@ int SetPrintL(char **names, int m)
     return 0;
 }
 
-void Winners(char **c)
+void Winners()
 {
     int i;
     int n[m / 2];
@@ -218,7 +168,7 @@ void Winners(char **c)
     }
 }
 
-void WinnersL(char **c)
+void WinnersL()
 {
     int i;
     int n[m / 2];
@@ -317,4 +267,61 @@ void WinnersLL()
     }
     ls = ls / 2;
     // printf("%s, %s \n\n",losers[0],losers[1]);
+}
+
+int main()
+{
+    int x, s;
+    int ch = 1;
+    InitNames();
+    InitLosers();
+    char chr[30][20];
+    readFile(c, chr, &m);
+    for (s = 0; s < m; s++) {
+        c[s][strlen(c[s]) - 1] = '\0';
+    }
+    while (ch) {
+        if (q <= 0) {
+            printf("1 - show grid \n");
+            printf("2 - choose winners \n");
+            scanf("%d", &x);
+            if (checkIns(x)) {
+                continue;
+            }
+            switch (x) {
+            case 1:
+                SetPrint(c, m);
+                break;
+            case 2:
+                if (m != 1) {
+                    Winners();
+                    SetPrint(c, m);
+                }
+                if (m == 1)
+                    printf("%s is the winner of the tournament!\n", c[0]),
+                            ch = 0;
+                break;
+            }
+        }
+        if (q == 1) {
+            printf("1 - show grid \n");
+            printf("2 - choose winners \n");
+            scanf("%d", &x);
+            switch (x) {
+            case 1:
+                SetPrint(c, m);
+                SetPrintL(losers, m);
+                break;
+            case 2:
+                WinnersL();
+                if (m != 0) {
+                    SetPrint(c, m);
+                    SetPrintL(losers, ls);
+                }
+                if (m == 0)
+                    ch = 0;
+                break;
+            }
+        }
+    }
 }
