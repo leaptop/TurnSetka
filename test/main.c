@@ -5,7 +5,7 @@
 
 CTEST(checkIns, Correct) {
     char ins [1];
-    ins [0] = '2';
+    ins [0] = '1';
     int result = checkIns(ins);
     int expected = 0;
     ASSERT_EQUAL(expected,result);
