@@ -11,9 +11,17 @@ CTEST(checkIns, Correct) {
     ASSERT_EQUAL(expected,result);
 }
 
-CTEST(checkIns, Incorrect) {
+CTEST(checkIns, Incorrect1) {
     char ins [1];
     ins [0] = 'f';
+    int result = checkIns(ins);
+    int expected = 1;
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(checkIns, Incorrect2) {
+    char ins [2];
+    ins [1] = 'f';
     int result = checkIns(ins);
     int expected = 1;
     ASSERT_EQUAL(expected,result);

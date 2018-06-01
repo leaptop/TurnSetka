@@ -123,12 +123,28 @@ void Winners()
     int i;
     int n[m / 2];
     int l[20];
+    char str[20];
     if (q == -1) {
-        printf("Will there be lower bracket? 1 for yes 0 for no. (Note: If "
+        yy: printf("Will there be lower bracket? 1 for yes 0 for no. (Note: If "
                "lower bracket will be enabled, number of competitors being not "
                "power of 2 will be impossible, so the teams will automatically "
                "be removed to correspond to closest lower power of 2!) \n");
-        scanf("%d", &q);
+        //scanf("%d", &q);
+        scanf("%s", str);
+        if (checkIns(str)) {
+            goto yy;
+        }
+        switch (str[0]) {
+        case 49:
+            q = 1;
+            break;
+        case 50:
+            goto yy;
+            break;
+        case 48:
+            q = 0;
+            break;
+        }
     }
     if (q == 1) {
         if (m >= 2 && m < 4)
@@ -143,8 +159,23 @@ void Winners()
     printf("Choose winners in each pair! (input 1 if team 1 won, input 2 if "
            "team 2 won) \n");
     for (i = 1; i < (m / 2) + 1; i++) {
-        printf("Winner of pair %d: \n", i);
-        scanf("%d", &n[i - 1]);
+        mm: printf("Winner of pair %d: \n", i);
+        //scanf("%d", &n[i - 1]);
+                scanf("%s", str);
+        if (checkIns(str)) {
+            goto mm;
+        }
+        switch (str[0]) {
+        case 49:
+            n[i - 1] = 1;
+            break;
+        case 50:
+            n[i - 1] = 2;
+            break;
+        case 48:
+            goto mm;
+            break;
+        }
         if (n[i - 1] == 1) {
             l[i - 1] = 2;
         } else {
@@ -174,13 +205,29 @@ void WinnersL()
     int n[m / 2];
     int l[20];
     int p[20];
+    char str[20];
     if (m != 1) {
         printf("Choose winners in each pair of losers bracket! (input 1 if "
                "team 1 won, input 2 if team 2 won) \n");
     }
     for (i = 1; i < (m / 2) + 1; i++) {
-        printf("Winner of pair %d: \n", i);
-        scanf("%d", &p[i - 1]);
+        kk: printf("Winner of pair %d: \n", i);
+        //scanf("%d", &p[i - 1]);
+        scanf("%s", str);
+        if (checkIns(str)) {
+                goto kk;
+        }
+        switch (str[0]) {
+        case 49:
+            p[i - 1] = 1;        
+            break;
+        case 50:
+            p[i - 1] = 2;
+            break;
+        case 48:
+            goto kk;
+            break;
+        }
         if (p[i - 1] == 1) {
             l[i - 1] = 2;
         } else {
@@ -197,12 +244,29 @@ void WinnersL()
         printf("Choose winners in each pair of winners bracket! (input 1 if "
                "team 1 won, input 2 if team 2 won) \n");
     for (i = 1; i < (m / 2) + 1; i++) {
-        printf("Winner of pair %d: \n", i);
-        scanf("%d", &n[i - 1]);
-        if (n[i - 1] == 1)
+        bb: printf("Winner of pair %d: \n", i);
+        //scanf("%d", &n[i - 1]);
+        scanf("%s", str);
+        if (checkIns(str)) {
+            goto bb;
+        }
+        switch (str[0]) {
+        case 49:
+            n[i - 1] = 1;        
+            break;
+        case 50:
+            n[i - 1] = 2;
+            break;
+        case 48:
+            goto bb;
+            break;
+        }
+        if (n[i - 1] == 1) {
             l[i - 1] = 2;
-        else
+        }
+        else {
             l[i - 1] = 1;
+        }
     }
     mul = 0;
     for (i = 0; i < ls; i++) {
@@ -218,14 +282,44 @@ void WinnersL()
         mul += 2;
     }
     if (m == 1) {
-        printf("Winner of the lower finals: %d\n", i);
-        scanf("%d", &p[0]);
+        d: printf("Winner of the lower finals: \n");
+        //scanf("%d", &p[0]);
+        scanf("%s", str);
+        if (checkIns(str)) {
+            goto d;
+        }
+        switch (str[0]) {
+        case 49:
+            p[0] = 1;
+            break;
+        case 50:
+            p[0] = 2;
+            break;
+        case 48:
+            goto d;
+            break;
+        }
         losers[0] = losers[p[i] - 1];
         printf("The moment we all came here for! Choose the winner of grand "
                "finals between %s(1) and %s(2)! \n",
                 c[0],
                 losers[0]);
-        scanf("%d", &n[0]);
+        //scanf("%d", &n[0]);
+        aa: scanf("%s", str);
+        if (checkIns(str)) {
+            goto aa;
+        }
+        switch (str[0]) {
+        case 49:
+            n[0] = 1;
+            break;
+        case 50:
+            n[0] = 2;
+            break;
+        case 48:
+            goto aa;
+            break;
+        }
         if (n[0] == 1)
             printf("%s is the winner of the tournament!\n", c[0]);
         if (n[0] == 2)
@@ -241,6 +335,7 @@ void WinnersL()
 void WinnersLL()
 {
     int i;
+    char str[20];
     // int n[m/2];
    // int l[20];//not used
     int p[20];
@@ -251,8 +346,23 @@ void WinnersLL()
            "team 2 won) \n");
     SetPrintL(losers, ls);
     for (i = 1; i < (ls / 2) + 1; i++) {
-        printf("Winner of pair %d: \n", i);
-        scanf("%d", &p[i - 1]);
+        e: printf("Winner of pair %d: \n", i);
+        //scanf("%d", &p[i - 1]);
+        scanf("%s", str);
+        if (checkIns(str)) {
+            goto e;
+        }
+        switch (str[0]) {
+            case 49:
+                p[i-1] = 1;
+                break;
+            case 50:
+                p[i-1] = 2;
+                break;
+           case 48:
+                goto e;
+                break;
+        }
         if (p[i - 1] == 1) {
            // l[i - 1] = 2;//not used
         } else {
@@ -283,7 +393,7 @@ int main()
     }
     while (ch) {
         if (q <= 0) {
-            printf("1 - show grid \n");
+         b: printf("1 - show grid \n");
             printf("2 - choose winners \n");
             //scanf("%d", &x);
             scanf("%s", str);
@@ -299,19 +409,22 @@ int main()
                     Winners();
                     SetPrint(c, m);
                 }
-                if (m == 1)
+                if (m == 1) {
                     printf("%s is the winner of the tournament!\n", c[0]),
                             ch = 0;
+                }
                 break;
+            case 48:
+                goto b;
             }
         }
         if (q == 1) {
-            printf("1 - show grid \n");
+         a: printf("1 - show grid \n");
             printf("2 - choose winners \n");
             //scanf("%d", &x);
             scanf("%s", str);
             if (checkIns(str)) {
-                continue;
+                goto a;
             }
             switch (str[0]) {
             case 49:
@@ -327,6 +440,8 @@ int main()
                 if (m == 0)
                     ch = 0;
                 break;
+            case 48:
+                goto a;         
             }
         }
     }
